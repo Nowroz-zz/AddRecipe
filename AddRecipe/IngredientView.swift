@@ -8,23 +8,24 @@
 import SwiftUI
 
 struct IngredientView: View {
-    let units = ["gm", "kg"]
+    @State private var dataConfig = DataConfig()
     
     var body: some View {
         VStack {
-            TextField("name", text: .constant(""))
+            TextField("name", text: $dataConfig.name)
             
             Divider()
             
             HStack {
-                TextField("amount", value: .constant(0.0), format: .number)
+                TextField("amount", value: $dataConfig.amount, format: .number)
                 
-                Picker("unit", selection: .constant("gm")) {
-                    ForEach(units, id:\.self) { unit in
+                Picker("unit", selection: $dataConfig.unit) {
+                    ForEach(dataConfig.units, id:\.self) { unit in
                         Text(unit)
                     }
                 }
                 .labelsHidden()
+                .fixedSize()
             }
         }
         .padding()
