@@ -12,6 +12,7 @@
 		CECA7A1928C2297500C3762D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECA7A1828C2297500C3762D /* Assets.xcassets */; };
 		CECA7A1C28C2297500C3762D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECA7A1B28C2297500C3762D /* Preview Assets.xcassets */; };
 		CECA7A2528C2306300C3762D /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA7A2428C2306300C3762D /* Ingredient.swift */; };
+		CECA7A2728C233B000C3762D /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA7A2628C233B000C3762D /* Recipe.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		CECA7A1828C2297500C3762D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CECA7A1B28C2297500C3762D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CECA7A2428C2306300C3762D /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		CECA7A2628C233B000C3762D /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				CECA7A1428C2297400C3762D /* AddRecipeApp.swift */,
 				CECA7A1628C2297400C3762D /* ContentView.swift */,
 				CECA7A2428C2306300C3762D /* Ingredient.swift */,
+				CECA7A2628C233B000C3762D /* Recipe.swift */,
 				CECA7A1828C2297500C3762D /* Assets.xcassets */,
 				CECA7A1A28C2297500C3762D /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 				CECA7A1728C2297400C3762D /* ContentView.swift in Sources */,
 				CECA7A1528C2297400C3762D /* AddRecipeApp.swift in Sources */,
 				CECA7A2528C2306300C3762D /* Ingredient.swift in Sources */,
+				CECA7A2728C233B000C3762D /* Recipe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
