@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct Ingredient: Identifiable {
+    let id: UUID
+    var name: String
+    var amount: Double
+    var unit: String
+}
