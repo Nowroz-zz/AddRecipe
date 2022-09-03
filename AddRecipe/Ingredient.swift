@@ -8,8 +8,11 @@
 import Foundation
 
 struct Ingredient: Identifiable {
-    let id: UUID
-    var name: String
-    var amount: Double
-    var unit: String
+    let id = UUID()
+    let number: Int
+    var name = ""
+    var amount = 0.0
+    var unit = "gm"
+    
+    static let units = ["gm", "kg", "ml", "liter", "ounce", "pound", "piece", "cup", "tea-spoon", "table-spoon"]
 }
