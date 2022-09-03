@@ -5,6 +5,7 @@
 //  Created by Nowroz Islam on 3/9/22.
 //
 
+import CoreData
 import Foundation
 
 extension AddRecipeView {
@@ -28,13 +29,27 @@ extension AddRecipeView {
             }
         }
         
-        func printRecipe(){
-            print("Title: \(title)")
+        func save(managedObjectContext moc: NSManagedObjectContext){
+            let cachedRecipe = CachedRecipe(context: moc)
+            cachedRecipe.id = UUID()
+            cachedRecipe.title = title
             
             for ingredient in ingredients {
-                print("name: \(ingredient.name)")
-                print("amount: \(ingredient.amount)\(ingredient.unit)")
+                let cachedIngredient = CachedIngredient(context: moc)
+                cachedIngredient.id = ingredient.id
+                cachedIngredient.name = ingredient.name
+                cachedIngredient.amount = ingredient.amount
+                cachedIngredient.unit = ingredient.unit
+                cachedIngredient.ingredientOf = cachedRecipe
             }
+            
+//            if moc.hasChanges {
+//                do {
+//                    try moc.save()
+//                } catch {
+//                    print("Core Data failed to save data.")
+//                }
+//            }
         }
     }
 }

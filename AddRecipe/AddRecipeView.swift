@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AddRecipeView: View {
+    @Environment(\.managedObjectContext) var moc
+    @Environment(\.dismiss) var dismiss
+    
     @StateObject var viewModel = ViewModel()
     
     var body: some View {
@@ -38,7 +41,10 @@ struct AddRecipeView: View {
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { viewModel.printRecipe() }
+                    Button("Save") {
+                        viewModel.save(managedObjectContext: moc)
+                        dismiss()
+                    }
                 }
             }
         }
