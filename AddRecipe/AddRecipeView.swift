@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    @State private var dataConfig = DataConfig()
+    @State private var numberOfIngredients = 1
     
     var body: some View {
         NavigationView {
             VStack {
                 Form {
-                    TextField("Enter a title", text: $dataConfig.title)
+                    TextField("Enter a title", text: .constant(""))
                     
                     Section {
-                        ForEach(0..<dataConfig.numberOfIngredients, id:\.self) { number in
+                        ForEach(0..<numberOfIngredients, id:\.self) { number in
                             HStack {
                                 Text("\(number + 1).")
-                                    .bold()
+                                    .font(.title2)
                                 
                                 Divider()
                                     .padding()
@@ -29,9 +29,9 @@ struct AddRecipeView: View {
                             }
                         }
                     } header: {
-                        Stepper("Add Ingredients", value: $dataConfig.numberOfIngredients, in: 1...50)
+                        Stepper("Add Ingredients", value: $numberOfIngredients, in: 1...50)
                             .textCase(.none)
-                            .font(.title3.bold())
+                            .font(.title3)
                             .padding(.bottom)
                     }
                 }
