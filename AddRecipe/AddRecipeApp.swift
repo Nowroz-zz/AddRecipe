@@ -14,7 +14,7 @@ struct AddRecipeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, dataController.container.viewContextg)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }
