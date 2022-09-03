@@ -8,31 +8,26 @@
 import SwiftUI
 
 struct AddRecipeView: View {
-    @State private var numberOfIngredients = 1
+    @StateObject var viewModel = ViewModel()
     
     var body: some View {
         NavigationView {
             VStack {
                 Form {
-                    TextField("Enter a title", text: .constant(""))
+                    TextField("Enter a title", text: $viewModel.title)
                     
                     Section {
-                        ForEach(0..<numberOfIngredients, id:\.self) { number in
-                            HStack {
-                                Text("\(number + 1).")
-                                    .font(.title2)
-                                
-                                Divider()
-                                    .padding()
-                                
-                                IngredientView()
-                            }
+                        ForEach($viewModel.ingredients) { $ingredient in
+                            IngredientView(ingredient: $ingredient)
                         }
                     } header: {
-                        Stepper("Add Ingredients", value: $numberOfIngredients, in: 1...50)
-                            .textCase(.none)
-                            .font(.title3)
-                            .padding(.bottom)
+                        Stepper("Add Ingredients") {
+                            viewModel.addIngredient()
+                        } onDecrement: {
+                            viewModel.removeIngredient()
+                        }
+                        .textCase(.none)
+                        .font(.headline)
                     }
                 }
             }
@@ -43,7 +38,7 @@ struct AddRecipeView: View {
                 }
                 
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("Save") { }
+                    Button("Save") { viewModel.printRecipe() }
                 }
             }
         }

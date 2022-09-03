@@ -8,31 +8,39 @@
 import SwiftUI
 
 struct IngredientView: View {
-    let units = ["gm", "kg"]
+    @Binding var ingredient: Ingredient    
     
     var body: some View {
-        VStack {
-            TextField("name", text: .constant(""))
+        HStack {
+            Text("\(ingredient.number).")
+                .bold()
+                .padding(.trailing)
             
             Divider()
             
-            HStack {
-                TextField("amount", value: .constant(0.0), format: .number)
+            VStack {
+                TextField("name", text: $ingredient.name)
                 
-                Picker("unit", selection: .constant("gm")) {
-                    ForEach(units, id:\.self) { unit in
-                        Text(unit)
+                Divider()
+                
+                HStack {
+                    TextField("amount", value: $ingredient.amount, format: .number)
+                    
+                    Picker("unit", selection: $ingredient.unit) {
+                        ForEach(Ingredient.units, id:\.self) { unit in
+                            Text(unit)
+                        }
                     }
+                    .labelsHidden()
                 }
-                .labelsHidden()
             }
+            .padding(.horizontal)
         }
-        .padding()
     }
 }
 
 struct IngredientView_Previews: PreviewProvider {
     static var previews: some View {
-        IngredientView()
+        IngredientView(ingredient: .constant(Ingredient(number: 1)))
     }
 }
